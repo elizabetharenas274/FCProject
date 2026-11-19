@@ -1,0 +1,91 @@
+[
+{
+  "model": "soccer.jugador",
+  "pk": 1,
+  "fields": {
+    "nombre": "Juan David Velásquez",
+    "correo": "juandavela@gmail.com",
+    "telefono": "3216549870",
+    "posicion": "Arquero",
+    "nivel": "Avanzado",
+    "ciudad": "Medellín",
+    "imagen_jugador": "jugadores/JuanDavidVelasquez_wK6HqJi.jpg"
+  }
+},
+{
+  "model": "soccer.jugador",
+  "pk": 2,
+  "fields": {
+    "nombre": "Mateo Correa",
+    "correo": "matt0202@gmail.com",
+    "telefono": "3012589674",
+    "posicion": "Delantero",
+    "nivel": "Intermedio",
+    "ciudad": "Bello",
+    "imagen_jugador": "jugadores/MateoCorrea.jpg"
+  }
+},
+{
+  "model": "soccer.jugador",
+  "pk": 3,
+  "fields": {
+    "nombre": "Luis Carlos Arango Pérez",
+    "correo": "luchoarango@gmail.com",
+    "telefono": "3145642897",
+    "posicion": "Defensa",
+    "nivel": "Principiante",
+    "ciudad": "Medellín",
+    "imagen_jugador": "jugadores/LuisArango.jpg"
+  }
+},
+{
+  "model": "soccer.jugador",
+  "pk": 4,
+  "fields": {
+    "nombre": "Roberto Morales",
+    "correo": "rob9514@hotmail.com",
+    "telefono": "3126549870",
+    "posicion": "Mediocampo",
+    "nivel": "Intermedio",
+    "ciudad": "Medellín",
+    "imagen_jugador": "jugadores/Roberto.jpg"
+  }
+},
+{
+  "model": "soccer.jugador",
+  "pk": 5,
+  "fields": {
+    "nombre": "Cristian Lopera",
+    "correo": "crisslop@gmail.com",
+    "telefono": "3136469789",
+    "posicion": "Mediocampo",
+    "nivel": "Avanzado",
+    "ciudad": "Medellín",
+    "imagen_jugador": ""
+  }
+},
+{
+  "model": "soccer.cancha",
+  "pk": 1,
+  "fields": {
+    "nombre": "San Nicolás",
+    "direccion": "Carrera 49 con calle 98",
+    "ciudad": "Mede",
+    "barrio": "Santa Cruz",
+    "tipo": "Sintética",
+    "imagen_cancha": "canchas/CanchaSanNicolasSC.jpg"
+  }
+},
+{
+  "model": "soccer.cancha",
+  "pk": 2,
+  "fields": {
+    "nombre": "La Maracaná",
+    "direccion": "Calle 96 #73",
+    "ciudad": "Medellín",
+    "barrio": "Castilla",
+    "tipo": "Sintética",
+    "imagen_cancha": "canchas/CanchaLaMaracana.jpg"
+  }
+}
+]
