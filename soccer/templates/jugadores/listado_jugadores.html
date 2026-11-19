@@ -1,0 +1,51 @@
+{% extends 'jugadores/base.html' %}
+
+{% block title %} Listado de Jugadores {% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Jugadores</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Posición</th>
+                <th scope="col">Nivel</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for jugador in jugadores %}
+            <tr>
+                <th scope="row">{{ jugador.id_jugador }}</th>
+                <td>{{ jugador.nombre }}</td>
+                <td>{{ jugador.correo }}</td>
+                <td>{{ jugador.telefono }}</td>
+                <td>{{ jugador.posicion }}</td>
+                <td>{{ jugador.nivel }}</td>
+                <td>{{ jugador.ciudad }}</td>
+                <td>
+                    {% if jugador.imagen_jugador %}
+                        <img src="{{ jugador.imagen_jugador.url }}" alt="{{ jugador.nombre }}" width="100" class="img-thumbnail">
+                    {% else %}
+                        No hay imagen disponible
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="#" class="btn btn-primary">Editar</a>
+                    <a href="#" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

@@ -4,15 +4,16 @@ from django.db import models
 
 class Jugador(models.Model):
     id_jugador = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, null=False)
     correo = models.EmailField(max_length=150)
     telefono = models.CharField(max_length=20)
     posicion = models.CharField(max_length=30)
     nivel = models.CharField(max_length=30)
     ciudad = models.CharField(max_length=100)
+    imagen_jugador = models.ImageField(upload_to='jugadores/', null=True, blank=True)
 
     def __str__(self):
-        return self.id_jugador
+        return self.nombre
 
 
 class Cancha(models.Model):
@@ -22,9 +23,10 @@ class Cancha(models.Model):
     ciudad = models.CharField(max_length=100)
     barrio = models.CharField(max_length=100)
     tipo = models.CharField(max_length=30)
+    imagen_cancha = models.ImageField(upload_to='canchas/', null=True, blank=True)
 
     def __str__(self):
-        return self.id_cancha
+        return self.nombre
 
 
 class Equipo(models.Model):
@@ -33,9 +35,10 @@ class Equipo(models.Model):
     descripcion = models.TextField()
     ciudad = models.CharField(max_length=100)
     creador_id = models.ForeignKey(Jugador, on_delete=models.CASCADE)
+    imagen_equipo = models.ImageField(upload_to='equipos/', null=True, blank=True)
 
     def __str__(self):
-        return self.id_equipo
+        return self.nombre
 
 
 class Partido(models.Model):
