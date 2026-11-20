@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Listado de Equipos {% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Equipos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Creador</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for equipo in equipos %}
+            <tr>
+                <th scope="row">{{ equipo.id_equipo }}</th>
+                <td>{{ equipo.nombre }}</td>
+                <td>{{ equipo.descripcion }}</td>
+                <td>{{ equipo.ciudad }}</td>
+                <td>{{ equipo.creador_id.nombre }}</td> {#de aquí sale el nombre del jugador que creó el equipo, gracias a la relación de clave foránea #}
+                <td>
+                    {% if equipo.imagen_equipo %}
+                        <img src="{{ equipo.imagen_equipo.url }}" alt="{{ equipo.nombre }}" width="100" class="img-thumbnail">
+                    {% else %}
+                        No hay imagen disponible
+                    {% endif %}
+                </td>
+
+                <td>
+                    <a href="#" class="btn btn-primary">Editar</a>
+                    <a href="#" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
