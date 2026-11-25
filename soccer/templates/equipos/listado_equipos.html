@@ -1,48 +1,96 @@
+
 {% extends 'base.html' %}
 
 {% block title %} Listado de Equipos {% endblock %}
 
 {% block content %}
 
-    <h1>Listado de Equipos</h1>
+<div class="container-fluid py-4">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Ciudad</th>
-                <th scope="col">Creador</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+        <div>
+            <span class="badge rounded-pill mb-2 fs-6"
+                  style="background-color: #e2f0e8; color: #123d2a; padding: 10px 18px;">
+                ⚽ Nuestra comunidad
+            </span>
 
-        <tbody>
-            {% for equipo in equipos %}
-            <tr>
-                <th scope="row">{{ equipo.id_equipo }}</th>
-                <td>{{ equipo.nombre }}</td>
-                <td>{{ equipo.descripcion }}</td>
-                <td>{{ equipo.ciudad }}</td>
-                <td>{{ equipo.creador_id.nombre }}</td> {#de aquí sale el nombre del jugador que creó el equipo, gracias a la relación de clave foránea #}
-                <td>
-                    {% if equipo.imagen_equipo %}
-                        <img src="{{ equipo.imagen_equipo.url }}" alt="{{ equipo.nombre }}" width="100" class="img-thumbnail">
-                    {% else %}
-                        No hay imagen disponible
-                    {% endif %}
-                </td>
+            <h1 class="fw-bold mb-1" style="color: #123d2a;">
+                Listado de Equipos
+            </h1>
 
-                <td>
-                    <a href="#" class="btn btn-primary">Editar</a>
-                    <a href="#" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
-            
-            {% endfor %}
+            <p class="text-secondary mb-0">
+                Conoce los equipos registrados en nuestra plataforma.
+            </p>
+        </div>
+    </div>
 
-        </tbody>
-    </table>
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-3">
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead style="background-color: #123d2a; color: white;">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Creador</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for equipo in equipos %}
+                        <tr>
+                            <th scope="row" style="color: #286344;">
+                                {{ equipo.id_equipo }}
+                            </th>
+
+                            <td class="fw-semibold">
+                                {{ equipo.nombre }}
+                            </td>
+
+                            <td>{{ equipo.descripcion }}</td>
+                            <td>{{ equipo.ciudad }}</td>
+                            <td>{{ equipo.creador_id.nombre }}</td>
+
+                            <td>
+                                {% if equipo.imagen_equipo %}
+                                    <img src="{{ equipo.imagen_equipo.url }}"
+                                         alt="{{ equipo.nombre }}"
+                                         width="75"
+                                         class="img-thumbnail rounded-3">
+                                {% else %}
+                                    <span class="text-secondary small">
+                                        No hay imagen disponible
+                                    </span>
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        Editar
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-danger">
+                                        Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 {% endblock %}

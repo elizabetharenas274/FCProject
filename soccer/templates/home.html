@@ -3,6 +3,60 @@
 {% block title %} Inicio {% endblock %}
 
 {% block content %}
-    <h1>Bienvenidos a nuestra Plataforma de Fútbol Club</h1>
-    <p>Consulta el listado de jugadores y equipos desde el menú.</p>
+
+<div class="text-center py-5">
+
+    <span class="badge rounded-pill mb-3 fs-5" style="background-color: #e2f0e8; color: #123d2a; padding: 14px 24px;">
+        ⚽ Bienvenido a Fútbol Club
+    </span>
+
+    <h1 class="fw-bold mb-3" style="color: #123d2a;">
+        Conecta con el mundo del fútbol
+    </h1>
+
+    <p class="text-secondary fs-5 mb-5">
+        Consulta jugadores y equipos, y descubre nuestra plataforma deportiva.
+    </p>
+
+    <div class="row justify-content-center g-4">
+
+        <div class="col-md-5">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <div class="card-body">
+                    <div class="fs-1 mb-3">🧑‍🤝‍🧑</div>
+                    <h4 class="fw-bold" style="color: #123d2a;">
+                        Jugadores
+                    </h4>
+                    <p class="text-secondary">
+                        Explora el listado de jugadores registrados en la plataforma.
+                    </p>
+                    <a href="{% url 'listado_jugadores' %}" class="btn text-white mt-2"
+                        style="background-color: #123d2a;">
+                        Ver jugadores
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <div class="card-body">
+                    <div class="fs-1 mb-3">⚽</div>
+                    <h4 class="fw-bold" style="color: #123d2a;">
+                        Equipos
+                    </h4>
+                    <p class="text-secondary">
+                        Conoce los equipos disponibles y consulta su información.
+                    </p>
+                    <a href="{% url 'listado_equipos' %}" class="btn text-white mt-2"
+                        style="background-color: #123d2a;">
+                        Ver equipos
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}

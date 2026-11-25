@@ -1,51 +1,100 @@
+
 {% extends 'base.html' %}
 
 {% block title %} Listado de Jugadores {% endblock %}
 
 {% block content %}
 
-    <h1>Listado de Jugadores</h1>
+<div class="container-fluid py-4">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Posición</th>
-                <th scope="col">Nivel</th>
-                <th scope="col">Ciudad</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+        <div>
+            <span class="badge rounded-pill mb-2 fs-6"
+                  style="background-color: #e2f0e8; color: #123d2a; padding: 10px 18px;">
+                ⚽ Nuestra comunidad
+            </span>
 
-        <tbody>
-            {% for jugador in jugadores %}
-            <tr>
-                <th scope="row">{{ jugador.id_jugador }}</th>
-                <td>{{ jugador.nombre }}</td>
-                <td>{{ jugador.correo }}</td>
-                <td>{{ jugador.telefono }}</td>
-                <td>{{ jugador.posicion }}</td>
-                <td>{{ jugador.nivel }}</td>
-                <td>{{ jugador.ciudad }}</td>
-                <td>
-                    {% if jugador.imagen_jugador %}
-                        <img src="{{ jugador.imagen_jugador.url }}" alt="{{ jugador.nombre }}" width="100" class="img-thumbnail">
-                    {% else %}
-                        No hay imagen disponible
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="#" class="btn btn-primary">Editar</a>
-                    <a href="#" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
-            
-            {% endfor %}
+            <h1 class="fw-bold mb-1" style="color: #123d2a;">
+                Listado de Jugadores
+            </h1>
 
-        </tbody>
-    </table>
+            <p class="text-secondary mb-0">
+                Consulta la información de los jugadores registrados.
+            </p>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-3">
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead style="background-color: #123d2a; color: white;">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Posición</th>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for jugador in jugadores %}
+                        <tr>
+                            <th scope="row" style="color: #286344;">
+                                {{ jugador.id_jugador }}
+                            </th>
+
+                            <td class="fw-semibold">
+                                {{ jugador.nombre }}
+                            </td>
+
+                            <td>{{ jugador.correo }}</td>
+                            <td>{{ jugador.telefono }}</td>
+                            <td>{{ jugador.posicion }}</td>
+                            <td>{{ jugador.nivel }}</td>
+                            <td>{{ jugador.ciudad }}</td>
+
+                            <td>
+                                {% if jugador.imagen_jugador %}
+                                    <img src="{{ jugador.imagen_jugador.url }}"
+                                         alt="{{ jugador.nombre }}"
+                                         width="75"
+                                         class="img-thumbnail rounded-3">
+                                {% else %}
+                                    <span class="text-secondary small">
+                                        No hay imagen disponible
+                                    </span>
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        Editar
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-danger">
+                                        Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 {% endblock %}
