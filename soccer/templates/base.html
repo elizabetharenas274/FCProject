@@ -139,6 +139,11 @@
                         Equipos
                     </a>
 
+                    <a class="nav-link {% if request.resolver_match.url_name == 'listado_canchas' %}active{% endif %}"
+                       href="{% url 'listado_canchas' %}">
+                        Canchas
+                    </a>
+
                 </div>
             </div>
 

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detalle de los jugadores
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h1 class="mb-4">Detalle de los jugadores</h1>
+
+    <div class="card">
+        <div class="card-body">
+
+            <h5 class="card-title">
+                {{ jugador.nombre }}
+            </h5>
+
+            <p>
+                <strong>ID:</strong>
+                {{ jugador.id_jugador }}
+            </p>
+
+            <p>
+                <strong>Nombre:</strong>
+                {{ jugador.nombre }}
+            </p>
+
+             <p>
+                <strong>Descripción:</strong>
+                {{ jugador.descripcion }}
+            </p>
+           
+
+            <a href="{% url 'listado_jugadores' %}"
+               class="theme-primary btn-solid btn-styled">
+                Volver al listado
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

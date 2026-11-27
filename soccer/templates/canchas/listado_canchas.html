@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %} Listado de Canchas {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+        <div>
+            <span class="badge rounded-pill mb-2 fs-6"
+                  style="background-color: #e2f0e8; color: #123d2a; padding: 10px 18px;">
+                ⚽ Nuestra comunidad
+            </span>
+
+            <h1 class="fw-bold mb-1" style="color: #123d2a;">
+                Listado de Canchas
+            </h1>
+
+            <p class="text-secondary mb-0">
+                Consulta la información de las canchas registradas.
+            </p>
+
+            <a href="{% url 'registrarCancha' %}" class="btn btn-sm btn-success mt-3">
+                Registrar Cancha
+            </a>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-3">
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead style="background-color: #123d2a; color: white;">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Barrio</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for cancha in canchas %}
+                        <tr>
+                            <th scope="row" style="color: #286344;">
+                                {{ cancha.id_cancha }}
+                            </th>
+
+                            <td class="fw-semibold">
+                                {{ cancha.nombre }}
+                            </td>
+
+                            <td>{{ cancha.direccion }}</td>
+                            <td>{{ cancha.ciudad }}</td>
+                            <td>{{ cancha.barrio }}</td>
+                            <td>{{ cancha.tipo }}</td>
+
+                            <td>
+                                {% if cancha.imagen_cancha %}
+                                    <img src="{{ cancha.imagen_cancha.url }}"
+                                         alt="{{ cancha.nombre }}"
+                                         width="75"
+                                         class="img-thumbnail rounded-3">
+                                {% else %}
+                                    <span class="text-secondary small">
+                                        No hay imagen disponible
+                                    </span>
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        Editar
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-danger">
+                                        Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
