@@ -21,6 +21,10 @@
             <p class="text-secondary mb-0">
                 Conoce los equipos registrados en nuestra plataforma.
             </p>
+
+            <a href="{% url 'registrarEquipo' %}" class="btn btn-sm btn-success mt-3">
+                Registrar Equipo
+            </a>
         </div>
     </div>
 
@@ -34,7 +38,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Descripción</th>
+                            
                             <th scope="col">Ciudad</th>
                             <th scope="col">Creador</th>
                             <th scope="col">Imagen</th>
@@ -53,7 +57,7 @@
                                 {{ equipo.nombre }}
                             </td>
 
-                            <td>{{ equipo.descripcion }}</td>
+                            
                             <td>{{ equipo.ciudad }}</td>
                             <td>{{ equipo.creador_id.nombre }}</td>
 
@@ -72,6 +76,10 @@
 
                             <td>
                                 <div class="d-flex gap-2">
+                                    <a href="{% url 'detalle_equipos' equipo.id_equipo %}" class="btn btn-sm btn-warning">
+                                        Ver Detalle
+                                    </a>
+
                                     <a href="#" class="btn btn-sm btn-primary">
                                         Editar
                                     </a>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detalle de los equipos
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <span class="badge rounded-pill mb-2 fs-6"
+          style="background-color: #e2f0e8; color: #123d2a; padding: 10px 18px;">
+        ⚽ Nuestra comunidad
+    </span>
+
+    <h1 class="fw-bold mb-1" style="color: #123d2a;">
+        Detalle de los Equipos
+    </h1>
+
+    <p class="text-secondary mb-0">
+        Revisa los detalles de tu equipo.
+    </p>
+
+
+
+    <div class="card">
+        <div class="card-body">
+
+            <h5 class="card-title">
+                {{ equipo.nombre }}
+            </h5>
+
+            <p>
+                <strong>ID:</strong>
+                {{ equipo.id_equipo }}
+            </p>
+
+            <p>
+                <strong>Nombre:</strong>
+                {{ equipo.nombre }}
+            </p>
+
+             <p>
+                <strong>Descripción:</strong>
+                {{ equipo.descripcion }}
+            </p>
+           
+
+            <a href="{% url 'listado_equipos' %}"
+               class="btn btn-sm btn-primary">
+                Volver al listado
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
